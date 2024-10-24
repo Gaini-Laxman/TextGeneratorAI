@@ -1,6 +1,9 @@
 package com.klinnovations.restcontroller;
 
 import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +15,8 @@ import reactor.core.publisher.Mono;
 @CrossOrigin(origins = "http://localhost:4200") // Adjust as needed
 public class TextController {
 
+	private Logger logger = LoggerFactory.getLogger(TextController.class);
+	
     private final TextGenerationService textGenerationService;
 
     @Autowired
