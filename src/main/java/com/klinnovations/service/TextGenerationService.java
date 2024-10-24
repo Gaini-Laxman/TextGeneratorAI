@@ -1,6 +1,5 @@
 package com.klinnovations.service;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -38,13 +37,13 @@ public class TextGenerationService {
         lastRequestTime = System.currentTimeMillis();
 
         // Create request body
-        String requestBody = String.format("{\"model\":\"gpt-3.5-turbo\", \"messages\":[{\"role\":\"user\", \"content\":\"%s\"}]}", prompt);
+        var myVar = String.format("{\"model\":\"gpt-3.5-turbo\", \"messages\":[{\"role\":\"user\", \"content\":\"%s\"}]}", prompt);
 
         // Send request using WebClient
         return webClient.post()
                 .header("Authorization", "Bearer " + apiKey)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromValue(requestBody))
+                .body(BodyInserters.fromValue(myVar))
                 .retrieve()
                 .bodyToMono(String.class)
                 .onErrorResume(e -> {

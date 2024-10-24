@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 @CrossOrigin(origins = "http://localhost:4200") // Adjust as needed
 public class TextController {
 
-	private Logger logger = LoggerFactory.getLogger(TextController.class);
+	public static final Logger logger = LoggerFactory.getLogger(TextController.class);
 	
     private final TextGenerationService textGenerationService;
 
