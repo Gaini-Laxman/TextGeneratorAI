@@ -1,0 +1,20 @@
+<div class="form-container">
+  <h1>Text Generator</h1>
+
+  <div class="form-group">
+    <label for="inputText">Enter your question:</label>
+    <textarea id="inputText" [(ngModel)]="inputText" rows="5" placeholder="Type your question here..."></textarea>
+  </div>
+
+  <button class="submit-button" (click)="generateText()">Generate</button>
+
+  <div class="output-area" *ngIf="outputText">
+    <h2>Generated Answer:</h2>
+    <p>{{ outputText }}</p>
+  </div>
+
+  <div class="output-area" *ngIf="errorMessage">
+    <h2>Error:</h2>
+    <p>{{ errorMessage }}</p>
+  </div>
+</div>
